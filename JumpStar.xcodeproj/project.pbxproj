@@ -30,25 +30,8 @@
 		DBFC05F61F100FDD003040AD /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC05F51F100FDD003040AD /* StartScene.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		DB045F881F02F2BA00EFBBB4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB045F651F02F2B900EFBBB4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DB045F6C1F02F2B900EFBBB4;
-			remoteInfo = FlappyBirdGame;
-		};
-		DB045F931F02F2BA00EFBBB4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB045F651F02F2B900EFBBB4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DB045F6C1F02F2B900EFBBB4;
-			remoteInfo = FlappyBirdGame;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		DB045F6D1F02F2B900EFBBB4 /* JumpIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB045F6D1F02F2B900EFBBB4 /* JumpStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB045F701F02F2B900EFBBB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB045F721F02F2B900EFBBB4 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		DB045F741F02F2B900EFBBB4 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -58,8 +41,6 @@
 		DB045F7D1F02F2BA00EFBBB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB045F801F02F2BA00EFBBB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB045F821F02F2BA00EFBBB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB045F871F02F2BA00EFBBB4 /* JumpInTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JumpInTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB045F921F02F2BA00EFBBB4 /* JumpInUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JumpInUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB045FA91F057FCB00EFBBB4 /* collect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = collect.mp3; sourceTree = "<group>"; };
 		DB045FB01F059A1500EFBBB4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DB045FB21F05A3C600EFBBB4 /* jumpplayer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jumpplayer.mp3; sourceTree = "<group>"; };
@@ -84,27 +65,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB045F841F02F2BA00EFBBB4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB045F8F1F02F2BA00EFBBB4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		DB045F641F02F2B900EFBBB4 = {
 			isa = PBXGroup;
 			children = (
-				DB045F6F1F02F2B900EFBBB4 /* JumpIn */,
+				DB045F6F1F02F2B900EFBBB4 /* JumpStar */,
 				DB045F6E1F02F2B900EFBBB4 /* Products */,
 				DB045FAF1F059A1500EFBBB4 /* Frameworks */,
 			);
@@ -113,14 +80,12 @@
 		DB045F6E1F02F2B900EFBBB4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB045F6D1F02F2B900EFBBB4 /* JumpIn.app */,
-				DB045F871F02F2BA00EFBBB4 /* JumpInTests.xctest */,
-				DB045F921F02F2BA00EFBBB4 /* JumpInUITests.xctest */,
+				DB045F6D1F02F2B900EFBBB4 /* JumpStar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DB045F6F1F02F2B900EFBBB4 /* JumpIn */ = {
+		DB045F6F1F02F2B900EFBBB4 /* JumpStar */ = {
 			isa = PBXGroup;
 			children = (
 				DB3F22381F29589F00E26387 /* Resources */,
@@ -135,7 +100,7 @@
 				DB045F821F02F2BA00EFBBB4 /* Info.plist */,
 				DB3F22361F2957AF00E26387 /* UIImage+Gif.swift */,
 			);
-			path = JumpIn;
+			path = JumpStar;
 			sourceTree = "<group>";
 		};
 		DB045FA81F057F5E00EFBBB4 /* Music */ = {
@@ -191,9 +156,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DB045F6C1F02F2B900EFBBB4 /* JumpIn */ = {
+		DB045F6C1F02F2B900EFBBB4 /* JumpStar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB045F9B1F02F2BA00EFBBB4 /* Build configuration list for PBXNativeTarget "JumpIn" */;
+			buildConfigurationList = DB045F9B1F02F2BA00EFBBB4 /* Build configuration list for PBXNativeTarget "JumpStar" */;
 			buildPhases = (
 				DB045F691F02F2B900EFBBB4 /* Sources */,
 				DB045F6A1F02F2B900EFBBB4 /* Frameworks */,
@@ -203,46 +168,10 @@
 			);
 			dependencies = (
 			);
-			name = JumpIn;
+			name = JumpStar;
 			productName = FlappyBirdGame;
-			productReference = DB045F6D1F02F2B900EFBBB4 /* JumpIn.app */;
+			productReference = DB045F6D1F02F2B900EFBBB4 /* JumpStar.app */;
 			productType = "com.apple.product-type.application";
-		};
-		DB045F861F02F2BA00EFBBB4 /* JumpInTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DB045F9E1F02F2BA00EFBBB4 /* Build configuration list for PBXNativeTarget "JumpInTests" */;
-			buildPhases = (
-				DB045F831F02F2BA00EFBBB4 /* Sources */,
-				DB045F841F02F2BA00EFBBB4 /* Frameworks */,
-				DB045F851F02F2BA00EFBBB4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DB045F891F02F2BA00EFBBB4 /* PBXTargetDependency */,
-			);
-			name = JumpInTests;
-			productName = FlappyBirdGameTests;
-			productReference = DB045F871F02F2BA00EFBBB4 /* JumpInTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		DB045F911F02F2BA00EFBBB4 /* JumpInUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DB045FA11F02F2BA00EFBBB4 /* Build configuration list for PBXNativeTarget "JumpInUITests" */;
-			buildPhases = (
-				DB045F8E1F02F2BA00EFBBB4 /* Sources */,
-				DB045F8F1F02F2BA00EFBBB4 /* Frameworks */,
-				DB045F901F02F2BA00EFBBB4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DB045F941F02F2BA00EFBBB4 /* PBXTargetDependency */,
-			);
-			name = JumpInUITests;
-			productName = FlappyBirdGameUITests;
-			productReference = DB045F921F02F2BA00EFBBB4 /* JumpInUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -260,21 +189,9 @@
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
-					DB045F861F02F2BA00EFBBB4 = {
-						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0910;
-						ProvisioningStyle = Automatic;
-						TestTargetID = DB045F6C1F02F2B900EFBBB4;
-					};
-					DB045F911F02F2BA00EFBBB4 = {
-						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0910;
-						ProvisioningStyle = Automatic;
-						TestTargetID = DB045F6C1F02F2B900EFBBB4;
-					};
 				};
 			};
-			buildConfigurationList = DB045F681F02F2B900EFBBB4 /* Build configuration list for PBXProject "JumpIn" */;
+			buildConfigurationList = DB045F681F02F2B900EFBBB4 /* Build configuration list for PBXProject "JumpStar" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -287,9 +204,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB045F6C1F02F2B900EFBBB4 /* JumpIn */,
-				DB045F861F02F2BA00EFBBB4 /* JumpInTests */,
-				DB045F911F02F2BA00EFBBB4 /* JumpInUITests */,
+				DB045F6C1F02F2B900EFBBB4 /* JumpStar */,
 			);
 		};
 /* End PBXProject section */
@@ -315,20 +230,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB045F851F02F2BA00EFBBB4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB045F901F02F2BA00EFBBB4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -346,34 +247,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB045F831F02F2BA00EFBBB4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB045F8E1F02F2BA00EFBBB4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DB045F891F02F2BA00EFBBB4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DB045F6C1F02F2B900EFBBB4 /* JumpIn */;
-			targetProxy = DB045F881F02F2BA00EFBBB4 /* PBXContainerItemProxy */;
-		};
-		DB045F941F02F2BA00EFBBB4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DB045F6C1F02F2B900EFBBB4 /* JumpIn */;
-			targetProxy = DB045F931F02F2BA00EFBBB4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DB045F7A1F02F2BA00EFBBB4 /* Main.storyboard */ = {
@@ -509,11 +383,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8LP7F4D4WS;
-				INFOPLIST_FILE = JumpIn/Info.plist;
+				INFOPLIST_FILE = JumpStar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = PragunSharma.JumpIn;
-				PRODUCT_NAME = JumpIn;
+				PRODUCT_BUNDLE_IDENTIFIER = PragunSharma.JumpStar;
+				PRODUCT_NAME = JumpStar;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -527,79 +401,21 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8LP7F4D4WS;
-				INFOPLIST_FILE = JumpIn/Info.plist;
+				INFOPLIST_FILE = JumpStar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = PragunSharma.JumpIn;
-				PRODUCT_NAME = JumpIn;
+				PRODUCT_BUNDLE_IDENTIFIER = PragunSharma.JumpStar;
+				PRODUCT_NAME = JumpStar;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
-		DB045F9F1F02F2BA00EFBBB4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = FlappyBirdGameTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = PragunSharma.FlappyBirdGameTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JumpIn.app/JumpIn";
-			};
-			name = Debug;
-		};
-		DB045FA01F02F2BA00EFBBB4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = FlappyBirdGameTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = PragunSharma.FlappyBirdGameTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JumpIn.app/JumpIn";
-			};
-			name = Release;
-		};
-		DB045FA21F02F2BA00EFBBB4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = FlappyBirdGameUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = PragunSharma.FlappyBirdGameUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = FlappyBirdGame;
-			};
-			name = Debug;
-		};
-		DB045FA31F02F2BA00EFBBB4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = FlappyBirdGameUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = PragunSharma.FlappyBirdGameUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = FlappyBirdGame;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DB045F681F02F2B900EFBBB4 /* Build configuration list for PBXProject "JumpIn" */ = {
+		DB045F681F02F2B900EFBBB4 /* Build configuration list for PBXProject "JumpStar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB045F991F02F2BA00EFBBB4 /* Debug */,
@@ -608,29 +424,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB045F9B1F02F2BA00EFBBB4 /* Build configuration list for PBXNativeTarget "JumpIn" */ = {
+		DB045F9B1F02F2BA00EFBBB4 /* Build configuration list for PBXNativeTarget "JumpStar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB045F9C1F02F2BA00EFBBB4 /* Debug */,
 				DB045F9D1F02F2BA00EFBBB4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DB045F9E1F02F2BA00EFBBB4 /* Build configuration list for PBXNativeTarget "JumpInTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DB045F9F1F02F2BA00EFBBB4 /* Debug */,
-				DB045FA01F02F2BA00EFBBB4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DB045FA11F02F2BA00EFBBB4 /* Build configuration list for PBXNativeTarget "JumpInUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DB045FA21F02F2BA00EFBBB4 /* Debug */,
-				DB045FA31F02F2BA00EFBBB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB045F6C1F02F2B900EFBBB4"
-               BuildableName = "JumpIn.app"
-               BlueprintName = "JumpIn"
-               ReferencedContainer = "container:JumpIn.xcodeproj">
+               BuildableName = "JumpStar.app"
+               BlueprintName = "JumpStar"
+               ReferencedContainer = "container:JumpStar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB045F861F02F2BA00EFBBB4"
-               BuildableName = "JumpInTests.xctest"
-               BlueprintName = "JumpInTests"
-               ReferencedContainer = "container:JumpIn.xcodeproj">
+               BuildableName = "JumpStarTests.xctest"
+               BlueprintName = "JumpStarTests"
+               ReferencedContainer = "container:JumpStar.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -44,9 +44,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB045F911F02F2BA00EFBBB4"
-               BuildableName = "JumpInUITests.xctest"
-               BlueprintName = "JumpInUITests"
-               ReferencedContainer = "container:JumpIn.xcodeproj">
+               BuildableName = "JumpStarUITests.xctest"
+               BlueprintName = "JumpStarUITests"
+               ReferencedContainer = "container:JumpStar.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -54,9 +54,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB045F6C1F02F2B900EFBBB4"
-            BuildableName = "JumpIn.app"
-            BlueprintName = "JumpIn"
-            ReferencedContainer = "container:JumpIn.xcodeproj">
+            BuildableName = "JumpStar.app"
+            BlueprintName = "JumpStar"
+            ReferencedContainer = "container:JumpStar.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,9 +78,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB045F6C1F02F2B900EFBBB4"
-            BuildableName = "JumpIn.app"
-            BlueprintName = "JumpIn"
-            ReferencedContainer = "container:JumpIn.xcodeproj">
+            BuildableName = "JumpStar.app"
+            BlueprintName = "JumpStar"
+            ReferencedContainer = "container:JumpStar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -104,9 +104,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB045F6C1F02F2B900EFBBB4"
-            BuildableName = "JumpIn.app"
-            BlueprintName = "JumpIn"
-            ReferencedContainer = "container:JumpIn.xcodeproj">
+            BuildableName = "JumpStar.app"
+            BlueprintName = "JumpStar"
+            ReferencedContainer = "container:JumpStar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
