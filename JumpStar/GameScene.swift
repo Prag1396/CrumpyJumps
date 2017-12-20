@@ -40,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     
 
     //var playSound = SKAction()
-    var playJumpSound = SKAction()
+    var playJumpSound = AVAudioPlayer()
     var ground = SKSpriteNode()
     var ghost = SKSpriteNode()
     var wallPair = SKNode()
@@ -290,8 +290,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
             
         }
         
+        do {
+            self.playJumpSound = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "bounce", ofType: "wav")!)!)
+            self.playJumpSound.prepareToPlay()
+            
+        } catch {
+            
+            print(error)
+        }
+        
         //playSound =  SKAction.playSoundFileNamed("collect", waitForCompletion: false)
-        playJumpSound = SKAction.playSoundFileNamed("jumpplayer", waitForCompletion: false)
+        playJumpSound.volume = 1.4
         self.createScene()
     }
     
@@ -494,7 +503,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         
         print(projectileForce)
         print(duration)
-        self.run(playJumpSound)
+        playJumpSound.play()
+        
         ghost.physicsBody?.applyImpulse(projectileForce)
         ghost.removeAllActions()
         ghost.run(SKAction.repeatForever(fly_animation!), withKey: "fly")

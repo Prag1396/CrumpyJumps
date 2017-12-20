@@ -25,7 +25,7 @@
 		DB4FD14E1FE7A9D700A332D1 /* techover.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4FD14D1FE7A9D700A332D1 /* techover.ttf */; };
 		DBC2D7151F0AC21B005FC537 /* UpgradesII.sks in Resources */ = {isa = PBXBuildFile; fileRef = DBC2D7141F0AC21B005FC537 /* UpgradesII.sks */; };
 		DBC2D7171F0AC262005FC537 /* UpgradesSceneTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2D7161F0AC262005FC537 /* UpgradesSceneTwo.swift */; };
-		DBC779E11FEA4CA20000582B /* woohoo.wav in Resources */ = {isa = PBXBuildFile; fileRef = DBC779E01FEA4CA20000582B /* woohoo.wav */; };
+		DBC779E31FEA5FE20000582B /* bounce.wav in Resources */ = {isa = PBXBuildFile; fileRef = DBC779E21FEA5FE20000582B /* bounce.wav */; };
 		DBFC05F41F100F9F003040AD /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DBFC05F31F100F9F003040AD /* StartScene.sks */; };
 		DBFC05F61F100FDD003040AD /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC05F51F100FDD003040AD /* StartScene.swift */; };
 /* End PBXBuildFile section */
@@ -51,7 +51,7 @@
 		DB4FD14D1FE7A9D700A332D1 /* techover.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = techover.ttf; sourceTree = "<group>"; };
 		DBC2D7141F0AC21B005FC537 /* UpgradesII.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = UpgradesII.sks; sourceTree = "<group>"; };
 		DBC2D7161F0AC262005FC537 /* UpgradesSceneTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradesSceneTwo.swift; sourceTree = "<group>"; };
-		DBC779E01FEA4CA20000582B /* woohoo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = woohoo.wav; sourceTree = "<group>"; };
+		DBC779E21FEA5FE20000582B /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bounce.wav; sourceTree = "<group>"; };
 		DBFC05F31F100F9F003040AD /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
 		DBFC05F51F100FDD003040AD /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,7 +106,7 @@
 		DB045FA81F057F5E00EFBBB4 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				DBC779E01FEA4CA20000582B /* woohoo.wav */,
+				DBC779E21FEA5FE20000582B /* bounce.wav */,
 				DB045FA91F057FCB00EFBBB4 /* collect.mp3 */,
 				DB045FB21F05A3C600EFBBB4 /* jumpplayer.mp3 */,
 			);
@@ -218,13 +218,13 @@
 				DB4FD14E1FE7A9D700A332D1 /* techover.ttf in Resources */,
 				DB045F7C1F02F2BA00EFBBB4 /* Main.storyboard in Resources */,
 				DB045FB51F09CDE300EFBBB4 /* UpgradesScene.sks in Resources */,
-				DBC779E11FEA4CA20000582B /* woohoo.wav in Resources */,
 				DB045F731F02F2B900EFBBB4 /* GameScene.sks in Resources */,
 				DB045F7E1F02F2BA00EFBBB4 /* Assets.xcassets in Resources */,
 				DB045FAC1F057FCB00EFBBB4 /* collect.mp3 in Resources */,
 				DBC2D7151F0AC21B005FC537 /* UpgradesII.sks in Resources */,
 				DB045FB31F05A3C600EFBBB4 /* jumpplayer.mp3 in Resources */,
 				DB045F811F02F2BA00EFBBB4 /* LaunchScreen.storyboard in Resources */,
+				DBC779E31FEA5FE20000582B /* bounce.wav in Resources */,
 				DBFC05F41F100F9F003040AD /* StartScene.sks in Resources */,
 				DB045F751F02F2B900EFBBB4 /* Actions.sks in Resources */,
 			);
