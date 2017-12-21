@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  JumpIn
+//  JumpStar
 //
 //  Created by Pragun Sharma on 27/06/17.
 //  Copyright © 2017 Pragun Sharma. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  UpgradesSceneTwo.swift
-//  JumpIn
+//  JumpStar
 //
 //  Created by Pragun Sharma on 03/07/17.
 //  Copyright © 2017 Pragun Sharma. All rights reserved.

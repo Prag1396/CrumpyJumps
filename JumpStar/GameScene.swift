@@ -1,6 +1,6 @@
 //
 //  GameScene.swift
-//  JumpIn
+//  JumpStar
 //
 //  Created by Pragun Sharma on 27/06/17.
 //  Copyright © 2017 Pragun Sharma. All rights reserved.
@@ -33,11 +33,6 @@ struct LongTouchTime {
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRecognizerDelegate {
-    
-    private var audioPlayerCollision = AVAudioPlayer()
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-
     
     var playSound = AVAudioPlayer()
     var playJumpSound = AVAudioPlayer()
@@ -164,7 +159,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         ghost.physicsBody?.affectedByGravity = true
         ghost.physicsBody?.isDynamic = true
         ghost.physicsBody?.allowsRotation = false
+        ghost.physicsBody?.velocity = CGVector(dx: 0.05, dy: 0)
         ghost.zPosition = 2
+
         
         run_animation = SKAction.animate(with: frames, timePerFrame: 0.15, resize: false, restore: false)
         fly_animation = SKAction.animate(with: fly_frames, timePerFrame: 0.15, resize: false, restore: false)
@@ -227,7 +224,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
                 () in
                 self.createWalls()
             })
-            delay = SKAction.wait(forDuration: 3.5)
+            delay = SKAction.wait(forDuration: 4.0)
             let SpawnDelay = SKAction.sequence([spawn, delay])
             let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
             self.run(spawnDelayForever)
@@ -379,14 +376,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
             
             if(firstBody.categoryBitMask == PhysicsStruct.Score && secondBody.categoryBitMask == PhysicsStruct.ghost) {
                 
-                if(self.score > 5) {
-                    delay = SKAction.wait(forDuration: 4.0)
-                    
-                } else if(self.score > 35) {
-                    delay = SKAction.wait(forDuration: 3.5)
-                    
+                if(self.score % 5 == 0 && self.score > 0 && self.score < 40) {
+                    ghost.physicsBody?.velocity.dx += 0.05
+                   
                 }
-                
                 if(isMagnetic == true) {
                     turnOnMagEffect()
                 }
@@ -398,7 +391,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
                     PlayerScore.numberOfCoinsCollected += 1
                     scoreLabel.text = "\(score)"
                     firstBody.node?.removeFromParent()
-                    //self.run(playSound)
+                    
                 
                     if(score > highScore) {
                     
@@ -421,21 +414,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
                 
             else if(firstBody.categoryBitMask == PhysicsStruct.ghost && secondBody.categoryBitMask == PhysicsStruct.Score) {
                 
-  
+                if(self.score % 5 == 0 && self.score > 0 && self.score < 40) {
+                    ghost.physicsBody?.velocity.dx += 0.05
+                    
+                }
                 if(isMagnetic == true) {
                     turnOnMagEffect()
                 }
                 
-                if(self.score > 15) {
-                    delay = SKAction.wait(forDuration: 4.0)
 
-                } else if(self.score > 35) {
-                    delay = SKAction.wait(forDuration: 3.5)
-
-                }
-                
                 if alreadyContacted == false {
-                    print("in contact2")
                     self.score += 1
                     PlayerScore.numberOfCoinsCollected += 1
                     scoreLabel.text = "\(score)"
@@ -784,8 +772,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
      
      wallPair = SKNode()
      wallPair.name = "wallPair"
-     topWall = SKSpriteNode(imageNamed: "_Wall")
-     bottomWall = SKSpriteNode(imageNamed: "_Wall")
+     topWall = SKSpriteNode(imageNamed: "Wall")
+     bottomWall = SKSpriteNode(imageNamed: "Wall")
      topWall.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2 + 350)
      
      if(!isDeactivated) {
