@@ -38,6 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
 
+    
     var playSound = AVAudioPlayer()
     var playJumpSound = AVAudioPlayer()
     var ground = SKSpriteNode()
@@ -72,15 +73,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     var run_animation = SKAction(named: "run")
     var fly_animation = SKAction(named: "fly")
     var alreadyContacted = Bool()
-    
-    /*
-    let texture = [SKTexture(imageNamed: "City"), SKTexture(imageNamed: "Ground"), SKTexture(imageNamed: "Ghost"), SKTexture(imageNamed: "shieldPowerUp"), SKTexture(imageNamed: "magnetIcon"), SKTexture(imageNamed: "RestartBtn"), SKTexture(imageNamed: "CoinIcon"), SKTexture(imageNamed: "PowerUpButton"), SKTexture(imageNamed: "Coin"), SKTexture(imageNamed: "Wall"), SKTexture(imageNamed: "Coin_spin-1"), SKTexture(imageNamed: "Coin_spin-2"), SKTexture(imageNamed: "Coin_spin-3")] */
+    var start = CGPoint()
+    var startTime = TimeInterval()
     
     let scoreLabel = SKLabelNode()
     let numberofCoinsLabel = SKLabelNode()
     
     var longPress = UILongPressGestureRecognizer()
     var doubleTap = UITapGestureRecognizer()
+    var swipeDown = UISwipeGestureRecognizer()
+   
     
     func restartScene() {
         
@@ -242,16 +244,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     
     override func didMove(to view: SKView) {
         
+        self.view?.isUserInteractionEnabled = true
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody.init(edgeLoopFrom: self.frame)
-        //SKTexture.preload(texture, withCompletionHandler: {})
+        
         alreadyContacted = false
+        
+        
         longPress = UILongPressGestureRecognizer(target: self, action: #selector(performAction(gesture:)))
         self.view?.addGestureRecognizer(longPress)
         
         doubleTap = UITapGestureRecognizer(target: self, action: #selector(resetPosition))
         doubleTap.numberOfTapsRequired = 2
         self.view?.addGestureRecognizer(doubleTap)
+        
+        swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(slowDown))
+        swipeDown.direction = .down
+        self.view?.addGestureRecognizer(swipeDown)
+        
         
         let highScoreDefult = UserDefaults.standard
         let getCoinsCollected = UserDefaults.standard
@@ -486,41 +496,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     }
     
     @objc func performAction(gesture: UILongPressGestureRecognizer) {
+        
+        print("here")
         var duration: TimeInterval = 0.0
         let maxValueForDuration = 0.42
+
         switch gesture.state {
         case .began:
             LongTouchTime.pressedStartTime = NSDate.timeIntervalSinceReferenceDate
-            
         case .ended:
             duration = NSDate.timeIntervalSinceReferenceDate - LongTouchTime.pressedStartTime
-            //Set MAX Value for Duration
             if duration > maxValueForDuration {
                 duration = maxValueForDuration
             }
-            projectileMotion(_position: ghost.position, duration: duration)
-            
+            projectileMotion(duration: CGFloat(duration))
         default:
             break
         }
+        
 
     }
     
-    func projectileMotion(_position: CGPoint, duration: TimeInterval) {
-        
+    func projectileMotion(duration: CGFloat) {
+
         var projectileForce = CGVector(dx: 35, dy: 100)
         projectileForce.dy = 2.0 * CGFloat(duration).squareRoot() * projectileForce.dy
         projectileForce.dx = 1.5 * CGFloat(duration).squareRoot() * projectileForce.dx
         
-        print(projectileForce)
-        print(duration)
         playJumpSound.play()
-        
         ghost.physicsBody?.applyImpulse(projectileForce)
         ghost.removeAllActions()
         ghost.run(SKAction.repeatForever(fly_animation!), withKey: "fly")
         
     }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -529,7 +538,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         for touch in touches {
             
             let location = touch.location(in: self)
-            print("Location: \(location)")
             if(died == true) {
                 
                 if(restartButton.contains(location)) {
@@ -610,8 +618,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         
     }
     
-    
-    
     @objc func resetPhysics() {
         
         //Reset Physics
@@ -645,9 +651,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         else {
             self.ghost.physicsBody?.applyImpulse((CGVector(dx: -50, dy: 0)))
             }
-        
-        
-        
+    }
+    
+    @objc func slowDown() {
+        print("in down")
+        ghost.physicsBody?.velocity.dx *= 0.6
+        ghost.physicsBody?.velocity.dy *= 0.6
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -799,6 +808,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
      wallPair.addChild(topWall)
      wallPair.addChild(bottomWall)
      wallPair.zPosition = 1
+     //Fix this last part
      let randomPosition = CGFloat(arc4random_uniform(300)) - 150
      wallPair.position.y = wallPair.position.y + randomPosition
      wallPair.addChild(scoreNode)
