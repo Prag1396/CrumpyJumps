@@ -78,10 +78,10 @@ class StartScene: SKScene {
         shieldPwrUp.zPosition = 6
         self.addChild(shieldPwrUp)
         
-        PowerUpLabel_1.position = CGPoint(x: shieldPwrUp.position.x + 130, y: shieldPwrUp.position.y - 5)
+        PowerUpLabel_1.position = CGPoint(x: shieldPwrUp.position.x + 130, y: shieldPwrUp.position.y - 7.5)
         PowerUpLabel_1.zPosition = 2
         PowerUpLabel_1.text = "Shield: Makes you Idestructible."
-        PowerUpLabel_1.fontSize = 15
+        PowerUpLabel_1.fontSize = 18
         self.addChild(PowerUpLabel_1)
         
         let magnetPowerUp = SKSpriteNode(imageNamed: "powerupYellow_star")
@@ -90,10 +90,10 @@ class StartScene: SKScene {
         magnetPowerUp.zPosition = 6
         self.addChild(magnetPowerUp)
         
-        PowerUpLabel_2.position = CGPoint(x: magnetPowerUp.position.x + 110, y: magnetPowerUp.position.y - 5)
+        PowerUpLabel_2.position = CGPoint(x: magnetPowerUp.position.x + 105, y: magnetPowerUp.position.y - 7.5)
         PowerUpLabel_2.zPosition = 2
         PowerUpLabel_2.text = "Magnet: Attracts Coins."
-        PowerUpLabel_2.fontSize = 15
+        PowerUpLabel_2.fontSize = 18
         self.addChild(PowerUpLabel_2)
         
         
