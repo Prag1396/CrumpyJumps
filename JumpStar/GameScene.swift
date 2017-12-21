@@ -75,6 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     var alreadyContacted = Bool()
     var start = CGPoint()
     var startTime = TimeInterval()
+    var delay = SKAction()
     
     let scoreLabel = SKLabelNode()
     let numberofCoinsLabel = SKLabelNode()
@@ -226,8 +227,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
                 () in
                 self.createWalls()
             })
-            
-            let delay = SKAction.wait(forDuration: 5.0)
+            delay = SKAction.wait(forDuration: 3.5)
             let SpawnDelay = SKAction.sequence([spawn, delay])
             let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
             self.run(spawnDelayForever)
@@ -379,9 +379,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
             
             if(firstBody.categoryBitMask == PhysicsStruct.Score && secondBody.categoryBitMask == PhysicsStruct.ghost) {
                 
-
+                if(self.score > 5) {
+                    delay = SKAction.wait(forDuration: 4.0)
+                    
+                } else if(self.score > 35) {
+                    delay = SKAction.wait(forDuration: 3.5)
+                    
+                }
+                
+                if(isMagnetic == true) {
+                    turnOnMagEffect()
+                }
+                
+                
                 if alreadyContacted == false {
-                    print("in contact")
+     
                     self.score += 1
                     PlayerScore.numberOfCoinsCollected += 1
                     scoreLabel.text = "\(score)"
@@ -412,6 +424,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
   
                 if(isMagnetic == true) {
                     turnOnMagEffect()
+                }
+                
+                if(self.score > 15) {
+                    delay = SKAction.wait(forDuration: 4.0)
+
+                } else if(self.score > 35) {
+                    delay = SKAction.wait(forDuration: 3.5)
+
                 }
                 
                 if alreadyContacted == false {
@@ -798,7 +818,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
      wallPair.addChild(topWall)
      wallPair.addChild(bottomWall)
      wallPair.zPosition = 1
-     //Fix this last part
      let randomPosition = CGFloat(arc4random_uniform(300)) - 150
      wallPair.position.y = wallPair.position.y + randomPosition
      wallPair.addChild(scoreNode)

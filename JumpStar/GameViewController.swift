@@ -28,7 +28,7 @@ class GameViewController: UIViewController, MFMessageComposeViewControllerDelega
             }
             
             view.ignoresSiblingOrder = true
-            view.showsPhysics = true
+            //view.showsPhysics = true
             //view.showsFPS = true
             //view.showsNodeCount = true
         }
