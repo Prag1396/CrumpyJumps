@@ -36,6 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     
     var playSound = AVAudioPlayer()
     var playJumpSound = AVAudioPlayer()
+    var collisionSound = AVAudioPlayer()
     var ground = SKSpriteNode()
     var ghost = SKSpriteNode()
     var wallPair = SKNode()
@@ -62,15 +63,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     var tempGravity = SKFieldNode()
     var duration = Float()
     var timer = Timer()
-    var initialPosition = CGPoint()
     var midptX = UIScreen.main.bounds.midX
     var midptY = UIScreen.main.bounds.midY
     var run_animation = SKAction(named: "run")
     var fly_animation = SKAction(named: "fly")
     var alreadyContacted = Bool()
-    var start = CGPoint()
-    var startTime = TimeInterval()
-    var delay = SKAction()
+    var maxValueForVelocity = 4.0
     
     let scoreLabel = SKLabelNode()
     let numberofCoinsLabel = SKLabelNode()
@@ -169,8 +167,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         
         self.addChild(ghost)
         
-        initialPosition = ghost.position
-        
         scoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 + self.frame.height / 2.5)
         scoreLabel.text = "\(score)"
         scoreLabel.fontName = "04b_19"
@@ -224,7 +220,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
                 () in
                 self.createWalls()
             })
-            delay = SKAction.wait(forDuration: 4.0)
+            let delay = SKAction.wait(forDuration: 4.0)
             let SpawnDelay = SKAction.sequence([spawn, delay])
             let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
             self.run(spawnDelayForever)
@@ -288,11 +284,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         }
         
         do {
-            self.playJumpSound = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "bounce", ofType: "wav")!)!)
+            self.playJumpSound = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "jump", ofType: "wav")!)!)
             self.playSound = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "collect", ofType: "mp3")!)!)
+            self.collisionSound = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "collision", ofType: "mp3")!)!)
             
             self.playJumpSound.prepareToPlay()
             self.playSound.prepareToPlay()
+            self.collisionSound.prepareToPlay()
             
         } catch {
             
@@ -377,7 +375,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
             if(firstBody.categoryBitMask == PhysicsStruct.Score && secondBody.categoryBitMask == PhysicsStruct.ghost) {
                 
                 if(self.score % 5 == 0 && self.score > 0 && self.score < 40) {
-                    ghost.physicsBody?.velocity.dx += 0.05
+                    if ((ghost.physicsBody?.velocity.dx)! < CGFloat(maxValueForVelocity)) {
+                        ghost.physicsBody?.velocity.dx += 0.05
+                    }
                    
                 }
                 if(isMagnetic == true) {
@@ -391,7 +391,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
                     PlayerScore.numberOfCoinsCollected += 1
                     scoreLabel.text = "\(score)"
                     firstBody.node?.removeFromParent()
-                    
+                    playSound.play()
                 
                     if(score > highScore) {
                     
@@ -415,7 +415,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
             else if(firstBody.categoryBitMask == PhysicsStruct.ghost && secondBody.categoryBitMask == PhysicsStruct.Score) {
                 
                 if(self.score % 5 == 0 && self.score > 0 && self.score < 40) {
-                    ghost.physicsBody?.velocity.dx += 0.05
+                    if ((ghost.physicsBody?.velocity.dx)! < CGFloat(maxValueForVelocity)) {
+                        ghost.physicsBody?.velocity.dx += 0.05
+                    }
                     
                 }
                 if(isMagnetic == true) {
@@ -429,7 +431,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
                     scoreLabel.text = "\(score)"
 
                     secondBody.node?.removeFromParent()
-                    //self.run(playSound)
+                    playSound.play()
                     if(score > highScore) {
                     
                         highScore = score
@@ -448,15 +450,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
 
             }
                 
-            else if(firstBody.categoryBitMask == PhysicsStruct.ghost && secondBody.categoryBitMask == PhysicsStruct.wall ||
-                
-                firstBody.categoryBitMask == PhysicsStruct.wall && secondBody.categoryBitMask == PhysicsStruct.ghost) {
+            else if(firstBody.categoryBitMask == PhysicsStruct.ghost && secondBody.categoryBitMask == PhysicsStruct.wall || firstBody.categoryBitMask == PhysicsStruct.wall && secondBody.categoryBitMask == PhysicsStruct.ghost) {
                 enumerateChildNodes(withName: "wallPair", using: ( {
                     
                     (node, error) in
                     node.speed = 0
                     self.removeAllActions()
-                    
+                    self.collisionSound.play()
                 }))
                 
                 if(died == false) {

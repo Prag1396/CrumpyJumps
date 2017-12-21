@@ -10,10 +10,11 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import MessageUI
+import AVFoundation
 
 class GameViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
-    
+    var backgroundMusic = AVAudioPlayer()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +33,18 @@ class GameViewController: UIViewController, MFMessageComposeViewControllerDelega
             //view.showsFPS = true
             //view.showsNodeCount = true
         }
+        
+        do {
+            self.backgroundMusic = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "bg", ofType: "mp3")!)!)
+            
+            backgroundMusic.prepareToPlay()
+            
+        } catch {
+            print(error)
+        }
+        backgroundMusic.volume = 0.5
+        backgroundMusic.play()
+
 
     }
     
@@ -67,7 +80,7 @@ class GameViewController: UIViewController, MFMessageComposeViewControllerDelega
             let message: MFMessageComposeViewController = MFMessageComposeViewController()
             message.messageComposeDelegate = self
             message.recipients = nil
-            message.body = "I challenge you to beat my high score in Flappy Ghost. My superscore was \(highScore)"
+            message.body = "I challenge you to beat my high score in JumpStar. My superscore was \(highScore)"
             self.present(message, animated: true, completion: nil)
         } else {
             //If device does not have the ability to send messages
