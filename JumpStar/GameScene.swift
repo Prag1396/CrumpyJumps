@@ -79,9 +79,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     let scoreLabel = SKLabelNode()
     let numberofCoinsLabel = SKLabelNode()
     
-    var longPress = UILongPressGestureRecognizer()
     var doubleTap = UITapGestureRecognizer()
-    var swipeDown = UISwipeGestureRecognizer()
+    var dragPress = UIPanGestureRecognizer()
    
     
     func restartScene() {
@@ -250,17 +249,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         
         alreadyContacted = false
         
-        
-        longPress = UILongPressGestureRecognizer(target: self, action: #selector(performAction(gesture:)))
-        self.view?.addGestureRecognizer(longPress)
-        
         doubleTap = UITapGestureRecognizer(target: self, action: #selector(resetPosition))
         doubleTap.numberOfTapsRequired = 2
         self.view?.addGestureRecognizer(doubleTap)
         
-        swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(slowDown))
-        swipeDown.direction = .down
-        self.view?.addGestureRecognizer(swipeDown)
+        dragPress = UIPanGestureRecognizer(target: self, action: #selector(performAction(gesture:)))
+        self.view?.addGestureRecognizer(dragPress)
         
         
         let highScoreDefult = UserDefaults.standard
@@ -495,9 +489,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         }
     }
     
-    @objc func performAction(gesture: UILongPressGestureRecognizer) {
+    @objc func performAction(gesture: UIPanGestureRecognizer) {
         
-        print("here")
         var duration: TimeInterval = 0.0
         let maxValueForDuration = 0.42
 
@@ -533,7 +526,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        
+        if died == false {
+            ghost.physicsBody?.velocity.dx *= 0.6
+            ghost.physicsBody?.velocity.dy *= 0.6
+        }
         //If restartButton is clicked
         for touch in touches {
             
@@ -651,12 +647,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         else {
             self.ghost.physicsBody?.applyImpulse((CGVector(dx: -50, dy: 0)))
             }
-    }
-    
-    @objc func slowDown() {
-        print("in down")
-        ghost.physicsBody?.velocity.dx *= 0.6
-        ghost.physicsBody?.velocity.dy *= 0.6
     }
     
     override func update(_ currentTime: TimeInterval) {
