@@ -395,7 +395,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = PragunSharma.JumpStar;
 				PRODUCT_NAME = JumpStar;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -413,7 +413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = PragunSharma.JumpStar;
 				PRODUCT_NAME = JumpStar;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
