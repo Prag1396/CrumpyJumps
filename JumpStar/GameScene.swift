@@ -67,6 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     var midptY = UIScreen.main.bounds.midY
     var run_animation = SKAction(named: "run")
     var fly_animation = SKAction(named: "fly")
+    var hit_animation = SKAction(named: "hit")
     var alreadyContacted = Bool()
     var maxValueForVelocity = 4.0
     
@@ -122,12 +123,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
             
         }
         
-        let frame1 = SKTexture.init(imageNamed: "run_0")
-        let frame2 = SKTexture.init(imageNamed: "run_1")
-        let frame3 = SKTexture.init(imageNamed: "run_2")
-        let frame4 = SKTexture.init(imageNamed: "run_3")
-        let frame5 = SKTexture.init(imageNamed: "run_4")
-        let frame6 = SKTexture.init(imageNamed: "run_5")
+        let run_frame1 = SKTexture.init(imageNamed: "run_0")
+        let run_frame2 = SKTexture.init(imageNamed: "run_1")
+        let run_frame3 = SKTexture.init(imageNamed: "run_2")
+        let run_frame4 = SKTexture.init(imageNamed: "run_3")
+        let run_frame5 = SKTexture.init(imageNamed: "run_4")
+        let run_frame6 = SKTexture.init(imageNamed: "run_5")
         
         let fly_frame1 = SKTexture.init(imageNamed: "swim_0")
         let fly_frame2 = SKTexture.init(imageNamed: "swim_1")
@@ -138,7 +139,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         
         
         
-        let frames: [SKTexture] = [frame1, frame2, frame3, frame4, frame5, frame6]
+        let run_frames: [SKTexture] = [run_frame1, run_frame2, run_frame3, run_frame4, run_frame5, run_frame6]
         let fly_frames: [SKTexture] = [fly_frame1, fly_frame2, fly_frame3, fly_frame4, fly_frame5, fly_frame6]
         
         ghost = SKSpriteNode(imageNamed: "idle_1")
@@ -161,7 +162,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         ghost.zPosition = 2
 
         
-        run_animation = SKAction.animate(with: frames, timePerFrame: 0.15, resize: false, restore: false)
+        run_animation = SKAction.animate(with: run_frames, timePerFrame: 0.15, resize: false, restore: false)
         fly_animation = SKAction.animate(with: fly_frames, timePerFrame: 0.15, resize: false, restore: false)
         ghost.run(SKAction.repeatForever(run_animation!), withKey: "run")
         
