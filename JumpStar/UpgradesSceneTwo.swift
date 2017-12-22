@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-class UpgradeSceneTwo: SKScene {
+class UpgradeSceneTwo: SKScene, UIGestureRecognizerDelegate {
     
     let numberofCoinsLabel = SKLabelNode()
     var numberOfCoins = SKSpriteNode()
@@ -20,8 +20,10 @@ class UpgradeSceneTwo: SKScene {
 
     override func didMove(to view: SKView) {
         
+        self.view?.isUserInteractionEnabled = true
         let swipedRight = UISwipeGestureRecognizer(target: self, action: #selector(userSwipedRight))
-        swipedRight.direction = UISwipeGestureRecognizerDirection.right
+        swipedRight.direction = .right
+        swipedRight.delegate = self
         self.view?.addGestureRecognizer(swipedRight)
         createScene()
         
@@ -46,7 +48,7 @@ class UpgradeSceneTwo: SKScene {
         self.addChild(background)
         
         magnetPowerUp = SKSpriteNode(imageNamed: "powerupYellow_star")
-        magnetPowerUp.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 75)
+        magnetPowerUp.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 0.1124 * self.frame.height)
         magnetPowerUp.setScale(1.2)
         magnetPowerUp.zPosition = 1
         self.addChild(magnetPowerUp)
@@ -62,7 +64,7 @@ class UpgradeSceneTwo: SKScene {
         
         //Add an image of coin when the game is not started
         numberOfCoins = SKSpriteNode(imageNamed: "large_stack")
-        numberOfCoins.position = CGPoint(x: self.frame.width/2 , y: self.frame.height/2 - 150)
+        numberOfCoins.position = CGPoint(x: self.frame.width/2 , y: self.frame.height/2 - 0.2248 * self.frame.height)
         numberOfCoins.size = CGSize(width: 50, height: 50)
         numberOfCoins.physicsBody = SKPhysicsBody(rectangleOf: numberOfCoins.size)
         numberOfCoins.physicsBody?.affectedByGravity = false
@@ -76,14 +78,14 @@ class UpgradeSceneTwo: SKScene {
         
         numberofCoinsLabel.text = "\(PlayerScore.numberOfCoinsCollected)"
         numberofCoinsLabel.fontName = "04b_19"
-        numberofCoinsLabel.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 - 200)
+        numberofCoinsLabel.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 - 0.33 * self.frame.height)
         numberofCoinsLabel.zPosition = 1
         self.addChild(numberofCoinsLabel)
         
         
         homeButton = SKSpriteNode(imageNamed: "backbtn")
         homeButton.size = CGSize(width: 256, height: 256)
-        homeButton.position = CGPoint(x: self.frame.width/2 - 150, y: self.frame.height/2 + 300)
+        homeButton.position = CGPoint(x: self.frame.width/2 - 0.4 * self.frame.width, y: self.frame.height/2 + 0.449 * self.frame.height)
         homeButton.zPosition = 2
         homeButton.setScale(0.17)
         self.addChild(homeButton)
@@ -112,6 +114,15 @@ class UpgradeSceneTwo: SKScene {
                 let gameScene = GameScene(fileNamed: "GameScene")
                 self.scene?.view?.presentScene(gameScene!, transition: SKTransition.crossFade(withDuration: 0.5))
             }
+        }
+    }
+    
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if (gestureRecognizer is UIPanGestureRecognizer || gestureRecognizer is UISwipeGestureRecognizer) {
+            return true
+        } else {
+            return false
         }
     }
     

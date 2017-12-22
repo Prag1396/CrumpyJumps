@@ -33,7 +33,6 @@ class StartScene: SKScene {
         
         SKTexture.preload(texture, withCompletionHandler: {})
         
-        
       
         
         let background = SKSpriteNode(imageNamed: "Night_Sky")
@@ -44,28 +43,28 @@ class StartScene: SKScene {
         self.addChild(background)
         
         
-        startLabel.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 100)
+        startLabel.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 0.15 * self.frame.height)
         startLabel.zPosition = 2
         startLabel.text = "TAP TO START!"
         startLabel.fontSize = 50
         self.addChild(startLabel)
         
         
-        DescpLabel_1.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 40)
+        DescpLabel_1.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 0.0599 * self.frame.height)
         DescpLabel_1.zPosition = 2
         DescpLabel_1.text = "Drag up to Jump."
         DescpLabel_1.horizontalAlignmentMode = .center
         DescpLabel_1.fontSize = 20
         self.addChild(DescpLabel_1)
         
-        DescpLabel_2.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 10)
+        DescpLabel_2.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 0.01499 * self.frame.height)
         DescpLabel_2.zPosition = 2
         DescpLabel_2.text = "Double Tap to perform moonwalk."
         DescpLabel_2.fontSize = 20
         DescpLabel_2.horizontalAlignmentMode = .center
         self.addChild(DescpLabel_2)
         
-        DescpLabel_3.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 - 20)
+        DescpLabel_3.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 - 0.0299 * self.frame.height)
         DescpLabel_3.zPosition = 2
         DescpLabel_3.text = "Single Tap to control velocity in air."
         DescpLabel_3.horizontalAlignmentMode = .center
@@ -73,7 +72,7 @@ class StartScene: SKScene {
         self.addChild(DescpLabel_3)
         
         let shieldPwrUp = SKSpriteNode(imageNamed: "powerupYellow_shield")
-        shieldPwrUp.position = CGPoint(x: self.frame.width/2 - 120 , y: self.frame.height/2 - 50)
+        shieldPwrUp.position = CGPoint(x: self.frame.width/2 - 0.32 * self.frame.width , y: self.frame.height/2 - 0.075 * self.frame.height)
         shieldPwrUp.setScale(0.7)
         shieldPwrUp.zPosition = 6
         self.addChild(shieldPwrUp)
@@ -85,7 +84,7 @@ class StartScene: SKScene {
         self.addChild(PowerUpLabel_1)
         
         let magnetPowerUp = SKSpriteNode(imageNamed: "powerupYellow_star")
-        magnetPowerUp.position = CGPoint(x: self.frame.width/2 - 120 , y: self.frame.height/2 - 100)
+        magnetPowerUp.position = CGPoint(x: self.frame.width/2 - 0.32 * self.frame.width, y: self.frame.height/2 - 0.15 * self.frame.height)
         magnetPowerUp.setScale(0.7)
         magnetPowerUp.zPosition = 6
         self.addChild(magnetPowerUp)

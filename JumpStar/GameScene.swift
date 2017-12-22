@@ -186,7 +186,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         
         //Create the power ups icons to tell how many the user has purchased
         shieldPwrUp = SKSpriteNode(imageNamed: "powerupYellow_shield")
-        shieldPwrUp.position = CGPoint(x: (self.scene?.size.width)! - 50, y: (self.scene?.size.height)! - 650)
+        shieldPwrUp.position = CGPoint(x: self.frame.width*0.9, y: self.frame.height - self.frame.height * 0.9771)
         shieldPwrUp.setScale(0.7)
         shieldPwrUp.zPosition = 6
         self.addChild(shieldPwrUp)
@@ -201,7 +201,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         
         
         magnetPowerUp = SKSpriteNode(imageNamed: "powerupYellow_star")
-        magnetPowerUp.position = CGPoint(x: (self.scene?.size.width)! - 100, y: (self.scene?.size.height)! - 650)
+        magnetPowerUp.position = CGPoint(x: shieldPwrUp.position.x - 50 , y: shieldPwrUp.position.y)
         magnetPowerUp.setScale(0.7)
         magnetPowerUp.zPosition = 6
         self.addChild(magnetPowerUp)
@@ -240,7 +240,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         self.view?.isUserInteractionEnabled = true
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody.init(edgeLoopFrom: self.frame)
-        
+
+
         alreadyContacted = false
         
         doubleTap = UITapGestureRecognizer(target: self, action: #selector(resetPosition))
@@ -322,13 +323,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         //Creating the ShareScore Button
         shareScoreBtn = SKSpriteNode(imageNamed: "shareIcon")
         shareScoreBtn.size = CGSize(width: 126, height: 126)
-        shareScoreBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 - 100)
+        shareScoreBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 - 0.161 * self.frame.height)
         shareScoreBtn.zPosition = 7
         shareScoreBtn.setScale(0.7)
         self.addChild(shareScoreBtn)
         
         numberOfCoins = SKSpriteNode(imageNamed: "large_stack")
-        numberOfCoins.position = CGPoint(x: self.frame.width/2 - 145, y: self.frame.height / 2 + 292.5)
+        numberOfCoins.position = CGPoint(x: self.frame.width/2 - 0.3866 * self.frame.width, y: self.frame.height / 2 + 0.4385 * self.frame.height)
         numberOfCoins.size = CGSize(width: 60, height: 58)
         numberOfCoins.physicsBody = SKPhysicsBody(rectangleOf: numberOfCoins.size)
         numberOfCoins.physicsBody?.affectedByGravity = false
@@ -357,7 +358,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         
         //Creating the Upgrade Button
         upgradeButton = SKSpriteNode(imageNamed: "powerupYellow_bolt")
-        upgradeButton.position = CGPoint(x: self.frame.width/2 + 140, y: self.frame.height / 2 + 290)
+        upgradeButton.position = CGPoint(x: self.frame.width/2 + 0.3733 * self.frame.width, y: self.frame.height / 2 + 0.4347 * self.frame.height)
         upgradeButton.zPosition = 6
         upgradeButton.setScale(1.2)
         self.addChild(upgradeButton)
