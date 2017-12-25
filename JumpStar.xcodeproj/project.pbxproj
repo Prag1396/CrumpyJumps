@@ -54,6 +54,7 @@
 		DBA36D931FEC69EC006707A5 /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bg.mp3; path = ../../../Downloads/bg.mp3; sourceTree = "<group>"; };
 		DBC2D7141F0AC21B005FC537 /* UpgradesII.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = UpgradesII.sks; sourceTree = "<group>"; };
 		DBC2D7161F0AC262005FC537 /* UpgradesSceneTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradesSceneTwo.swift; sourceTree = "<group>"; };
+		DBE0245B1FEE1A1C008C14DE /* JumpStar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JumpStar.entitlements; sourceTree = "<group>"; };
 		DBFC05F31F100F9F003040AD /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
 		DBFC05F51F100FDD003040AD /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +91,7 @@
 		DB045F6F1F02F2B900EFBBB4 /* JumpStar */ = {
 			isa = PBXGroup;
 			children = (
+				DBE0245B1FEE1A1C008C14DE /* JumpStar.entitlements */,
 				DB3F22381F29589F00E26387 /* Resources */,
 				DB3F22351F29571800E26387 /* Scenes */,
 				DB3F22341F2956FB00E26387 /* SKS */,
@@ -191,6 +193,11 @@
 						DevelopmentTeam = 8LP7F4D4WS;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

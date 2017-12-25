@@ -74,8 +74,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     let scoreLabel = SKLabelNode()
     let numberofCoinsLabel = SKLabelNode()
     
-    var doubleTap = UITapGestureRecognizer()
+    var moonwalk = UISwipeGestureRecognizer()
     var dragPress = UIPanGestureRecognizer()
+    
+    let SWIPE_LEFT_THRESHOLD: CGFloat = -1000.0
    
     
     func restartScene() {
@@ -91,6 +93,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         let startScene = GameScene(fileNamed: "StartScene")
         self.scene?.view?.presentScene(startScene!, transition: .fade(withDuration: 0.8))
         
+    }
+    
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if (gestureRecognizer is UIPanGestureRecognizer || gestureRecognizer is UISwipeGestureRecognizer) {
+            return true
+        } else {
+            return false
+        }
     }
     
     func createScene() {
@@ -244,11 +255,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
 
         alreadyContacted = false
         
-        doubleTap = UITapGestureRecognizer(target: self, action: #selector(resetPosition))
-        doubleTap.numberOfTapsRequired = 2
-        self.view?.addGestureRecognizer(doubleTap)
+        moonwalk = UISwipeGestureRecognizer()
+        moonwalk.direction = .left
+        moonwalk.delegate = self
+        self.view?.addGestureRecognizer(moonwalk)
         
         dragPress = UIPanGestureRecognizer(target: self, action: #selector(performAction(gesture:)))
+        dragPress.delegate = self
+        dragPress.maximumNumberOfTouches = 1
         self.view?.addGestureRecognizer(dragPress)
         
         
@@ -501,6 +515,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     
     @objc func performAction(gesture: UIPanGestureRecognizer) {
         
+    
         var duration: TimeInterval = 0.0
         let maxValueForDuration = 0.42
 
@@ -508,11 +523,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         case .began:
             LongTouchTime.pressedStartTime = NSDate.timeIntervalSinceReferenceDate
         case .ended:
+            
+            let vel: CGPoint = gesture.velocity(in: self.view)
+            if(vel.x < SWIPE_LEFT_THRESHOLD) {
+                resetPosition()
+            } else {
+                
+            
             duration = NSDate.timeIntervalSinceReferenceDate - LongTouchTime.pressedStartTime
             if duration > maxValueForDuration {
                 duration = maxValueForDuration
             }
             projectileMotion(duration: CGFloat(duration))
+            }
         default:
             break
         }

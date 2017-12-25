@@ -14,10 +14,10 @@ import AVFoundation
 
 class GameViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
+    
     var backgroundMusic = AVAudioPlayer()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let view = self.view as! SKView? {
             // Load the SKScene from 'StartScene.sks'
             if let scene = SKScene(fileNamed: "StartScene") as? StartScene {
@@ -76,11 +76,11 @@ class GameViewController: UIViewController, MFMessageComposeViewControllerDelega
     
     func shareScore(highScore: Int) {
         
-        if MFMessageComposeViewController.canSendText() {
+        if MFMessageComposeViewController.canSendText()  {
             let message: MFMessageComposeViewController = MFMessageComposeViewController()
             message.messageComposeDelegate = self
             message.recipients = nil
-            message.body = "I challenge you to beat my high score in JumpStar. My superscore was \(highScore)"
+            message.body = "I challenge you to beat my high score in JumpStar. My superscore was \(highScore).\n Link: https://itunes.apple.com/us/app/crumpy-jumps/id1328710333?ls=1&mt=8"
             self.present(message, animated: true, completion: nil)
         } else {
             //If device does not have the ability to send messages
@@ -89,6 +89,8 @@ class GameViewController: UIViewController, MFMessageComposeViewControllerDelega
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    
  }
 
 
