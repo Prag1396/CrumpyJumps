@@ -27,6 +27,8 @@
 		DBA36D941FEC69EC006707A5 /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DBA36D931FEC69EC006707A5 /* bg.mp3 */; };
 		DBC2D7151F0AC21B005FC537 /* UpgradesII.sks in Resources */ = {isa = PBXBuildFile; fileRef = DBC2D7141F0AC21B005FC537 /* UpgradesII.sks */; };
 		DBC2D7171F0AC262005FC537 /* UpgradesSceneTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2D7161F0AC262005FC537 /* UpgradesSceneTwo.swift */; };
+		DBEB313B1FF0992500FCA387 /* TutorialsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DBEB313A1FF0992500FCA387 /* TutorialsScene.sks */; };
+		DBEB313D1FF0995F00FCA387 /* TutorialsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEB313C1FF0995F00FCA387 /* TutorialsScene.swift */; };
 		DBFC05F41F100F9F003040AD /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DBFC05F31F100F9F003040AD /* StartScene.sks */; };
 		DBFC05F61F100FDD003040AD /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFC05F51F100FDD003040AD /* StartScene.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,8 @@
 		DBC2D7141F0AC21B005FC537 /* UpgradesII.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = UpgradesII.sks; sourceTree = "<group>"; };
 		DBC2D7161F0AC262005FC537 /* UpgradesSceneTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradesSceneTwo.swift; sourceTree = "<group>"; };
 		DBE0245B1FEE1A1C008C14DE /* JumpStar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JumpStar.entitlements; sourceTree = "<group>"; };
+		DBEB313A1FF0992500FCA387 /* TutorialsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TutorialsScene.sks; sourceTree = "<group>"; };
+		DBEB313C1FF0995F00FCA387 /* TutorialsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsScene.swift; sourceTree = "<group>"; };
 		DBFC05F31F100F9F003040AD /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
 		DBFC05F51F100FDD003040AD /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +138,7 @@
 				DB045FB41F09CDE300EFBBB4 /* UpgradesScene.sks */,
 				DBC2D7141F0AC21B005FC537 /* UpgradesII.sks */,
 				DB045F741F02F2B900EFBBB4 /* Actions.sks */,
+				DBEB313A1FF0992500FCA387 /* TutorialsScene.sks */,
 			);
 			name = SKS;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				DB045F761F02F2BA00EFBBB4 /* GameScene.swift */,
 				DB045FB61F09CEBC00EFBBB4 /* Upgrade.swift */,
 				DBC2D7161F0AC262005FC537 /* UpgradesSceneTwo.swift */,
+				DBEB313C1FF0995F00FCA387 /* TutorialsScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 				DBA36D941FEC69EC006707A5 /* bg.mp3 in Resources */,
 				DB3F223C1F29615700E26387 /* 04B_19__.TTF in Resources */,
 				DB4FD14E1FE7A9D700A332D1 /* techover.ttf in Resources */,
+				DBEB313B1FF0992500FCA387 /* TutorialsScene.sks in Resources */,
 				DB045F7C1F02F2BA00EFBBB4 /* Main.storyboard in Resources */,
 				DB045FB51F09CDE300EFBBB4 /* UpgradesScene.sks in Resources */,
 				DB045F731F02F2B900EFBBB4 /* GameScene.sks in Resources */,
@@ -252,6 +259,7 @@
 				DBFC05F61F100FDD003040AD /* StartScene.swift in Sources */,
 				DB045F791F02F2BA00EFBBB4 /* GameViewController.swift in Sources */,
 				DB045F711F02F2B900EFBBB4 /* AppDelegate.swift in Sources */,
+				DBEB313D1FF0995F00FCA387 /* TutorialsScene.swift in Sources */,
 				DBC2D7171F0AC262005FC537 /* UpgradesSceneTwo.swift in Sources */,
 				DB3F22371F2957AF00E26387 /* UIImage+Gif.swift in Sources */,
 				DB045FB71F09CEBC00EFBBB4 /* Upgrade.swift in Sources */,

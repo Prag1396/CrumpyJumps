@@ -50,27 +50,6 @@ class StartScene: SKScene {
         self.addChild(startLabel)
         
         
-        DescpLabel_1.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 0.0599 * self.frame.height)
-        DescpLabel_1.zPosition = 2
-        DescpLabel_1.text = "Drag up to Jump."
-        DescpLabel_1.horizontalAlignmentMode = .center
-        DescpLabel_1.fontSize = 20
-        self.addChild(DescpLabel_1)
-        
-        DescpLabel_2.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 0.01499 * self.frame.height)
-        DescpLabel_2.zPosition = 2
-        DescpLabel_2.text = "Double Tap to perform moonwalk."
-        DescpLabel_2.fontSize = 20
-        DescpLabel_2.horizontalAlignmentMode = .center
-        self.addChild(DescpLabel_2)
-        
-        DescpLabel_3.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 - 0.0299 * self.frame.height)
-        DescpLabel_3.zPosition = 2
-        DescpLabel_3.text = "Single Tap to control velocity in air."
-        DescpLabel_3.horizontalAlignmentMode = .center
-        DescpLabel_3.fontSize = 20
-        self.addChild(DescpLabel_3)
-        
         let shieldPwrUp = SKSpriteNode(imageNamed: "powerupYellow_shield")
         shieldPwrUp.position = CGPoint(x: self.frame.width/2 - 0.32 * self.frame.width , y: self.frame.height/2 - 0.075 * self.frame.height)
         shieldPwrUp.setScale(0.7)
@@ -79,7 +58,7 @@ class StartScene: SKScene {
         
         PowerUpLabel_1.position = CGPoint(x: shieldPwrUp.position.x + 130, y: shieldPwrUp.position.y - 7.5)
         PowerUpLabel_1.zPosition = 2
-        PowerUpLabel_1.text = "Shield: Makes you Idestructible."
+        PowerUpLabel_1.text = "Shield: Makes you Indestructible."
         PowerUpLabel_1.fontSize = 18
         self.addChild(PowerUpLabel_1)
         

@@ -20,7 +20,7 @@ class GameViewController: UIViewController, MFMessageComposeViewControllerDelega
         super.viewDidLoad()
         if let view = self.view as! SKView? {
             // Load the SKScene from 'StartScene.sks'
-            if let scene = SKScene(fileNamed: "StartScene") as? StartScene {
+            if let scene = SKScene(fileNamed: "TutorialsScene") as? TutorialsScene {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 scene.size = self.view.bounds.size

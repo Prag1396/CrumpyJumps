@@ -539,8 +539,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         default:
             break
         }
-        
-
     }
     
     func projectileMotion(duration: CGFloat) {
