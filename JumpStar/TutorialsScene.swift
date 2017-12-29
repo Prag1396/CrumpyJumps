@@ -15,9 +15,8 @@ import AVFoundation
 
 class TutorialsScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDelegate {
     
-    
     let texture = [SKTexture(imageNamed: "Wall"), SKTexture(imageNamed: "backbtn"), SKTexture(imageNamed: "Ground"), SKTexture(imageNamed: "idle_1"), SKTexture(imageNamed: "idle_2"), SKTexture(imageNamed: "large_stack"), SKTexture(imageNamed: "Night_Sky"), SKTexture(imageNamed: "powerupYellow_bolt"), SKTexture(imageNamed: "powerupYellow_shield"), SKTexture(imageNamed: "powerupYellow_star"), SKTexture(imageNamed: "Restart_Btn"), SKTexture(imageNamed: "run_0"), SKTexture(imageNamed: "run_1"), SKTexture(imageNamed: "run_2"),
-                   SKTexture(imageNamed: "run_3"), SKTexture(imageNamed: "run_4"), SKTexture(imageNamed: "run_5"), SKTexture(imageNamed: "shareIcon"), SKTexture(imageNamed: "star_coin"), SKTexture(imageNamed: "swim_0"), SKTexture(imageNamed: "swim_1"), SKTexture(imageNamed: "swim_2"), SKTexture(imageNamed: "swim_3"), SKTexture(imageNamed: "swim_4"), SKTexture(imageNamed: "swim_5") ]
+                   SKTexture(imageNamed: "run_3"), SKTexture(imageNamed: "run_4"), SKTexture(imageNamed: "run_5"), SKTexture(imageNamed: "shareIcon"), SKTexture(imageNamed: "star_coin"), SKTexture(imageNamed: "swim_0"), SKTexture(imageNamed: "swim_1"), SKTexture(imageNamed: "swim_2"), SKTexture(imageNamed: "swim_3"), SKTexture(imageNamed: "swim_4"), SKTexture(imageNamed: "swim_5"), SKTexture(imageNamed: "iPhone 8_00"), SKTexture(imageNamed: "iPhone 8_01"), SKTexture(imageNamed: "iPhone 8_02"), SKTexture(imageNamed: "iPhone 8_03"), SKTexture(imageNamed: "iPhone 8_04"), SKTexture(imageNamed: "iPhone 8_05"), SKTexture(imageNamed: "iPhone 8_06"), SKTexture(imageNamed: "iPhone 8_07"), SKTexture(imageNamed: "iPhone_00"), SKTexture(imageNamed: "iPhone_01"), SKTexture(imageNamed: "iPhone_02"), SKTexture(imageNamed: "iPhone_03"), SKTexture(imageNamed: "iPhone_04"), SKTexture(imageNamed: "iPhone_05"), SKTexture(imageNamed: "Tap") ]
     
     var timer = Timer()
     var background = SKSpriteNode()

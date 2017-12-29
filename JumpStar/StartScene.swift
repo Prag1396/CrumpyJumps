@@ -16,6 +16,8 @@ import AVFoundation
 
 class StartScene: SKScene {
     
+    let texture = [SKTexture(imageNamed: "Wall"), SKTexture(imageNamed: "backbtn"), SKTexture(imageNamed: "Ground"), SKTexture(imageNamed: "idle_1"), SKTexture(imageNamed: "idle_2"), SKTexture(imageNamed: "large_stack"), SKTexture(imageNamed: "Night_Sky"), SKTexture(imageNamed: "powerupYellow_bolt"), SKTexture(imageNamed: "powerupYellow_shield"), SKTexture(imageNamed: "powerupYellow_star"), SKTexture(imageNamed: "Restart_Btn"), SKTexture(imageNamed: "run_0"), SKTexture(imageNamed: "run_1"), SKTexture(imageNamed: "run_2"),
+                   SKTexture(imageNamed: "run_3"), SKTexture(imageNamed: "run_4"), SKTexture(imageNamed: "run_5"), SKTexture(imageNamed: "shareIcon"), SKTexture(imageNamed: "star_coin"), SKTexture(imageNamed: "swim_0"), SKTexture(imageNamed: "swim_1"), SKTexture(imageNamed: "swim_2"), SKTexture(imageNamed: "swim_3"), SKTexture(imageNamed: "swim_4"), SKTexture(imageNamed: "swim_5") ]
     
     var startLabel = SKLabelNode()
     var DescpLabel_1 = SKLabelNode()
@@ -35,7 +37,7 @@ class StartScene: SKScene {
         startLabel.zPosition = 2
         startLabel.text = "TAP TO START!"
         startLabel.fontName = "Futura"
-        startLabel.fontSize = 50
+        startLabel.fontSize = 44
         self.addChild(startLabel)
         
         for i in 0..<2 {
@@ -71,11 +73,11 @@ class StartScene: SKScene {
         shieldPwrUp.zPosition = 6
         self.addChild(shieldPwrUp)
         
-        PowerUpLabel_1.position = CGPoint(x: shieldPwrUp.position.x + 0.42 * self.frame.width , y: shieldPwrUp.position.y - 0.01174 * self.frame.height)
+        PowerUpLabel_1.position = CGPoint(x: shieldPwrUp.position.x + 0.4 * self.frame.width , y: shieldPwrUp.position.y - 0.01174 * self.frame.height)
         PowerUpLabel_1.zPosition = 2
         PowerUpLabel_1.text = "Shield: Makes you Indestructible."
         PowerUpLabel_1.fontName = "Futura"
-        PowerUpLabel_1.fontSize = 18
+        PowerUpLabel_1.fontSize = 15
         self.addChild(PowerUpLabel_1)
         
         let magnetPowerUp = SKSpriteNode(imageNamed: "powerupYellow_star")
@@ -88,7 +90,7 @@ class StartScene: SKScene {
         PowerUpLabel_2.zPosition = 2
         PowerUpLabel_2.fontName = "Futura"
         PowerUpLabel_2.text = "Magnet: Attracts Coins."
-        PowerUpLabel_2.fontSize = 18
+        PowerUpLabel_2.fontSize = 15
         self.addChild(PowerUpLabel_2)
         
         //Load Game Scene
