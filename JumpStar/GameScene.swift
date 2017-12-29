@@ -11,7 +11,7 @@
 import SpriteKit
 import GameplayKit
 import AVFoundation
-
+import StoreKit
 
 
 struct PhysicsStruct {
@@ -70,10 +70,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
     var hit_animation = SKAction(named: "hit")
     var alreadyContacted = Bool()
     var maxValueForVelocity = 4.0
-    
     let scoreLabel = SKLabelNode()
     let numberofCoinsLabel = SKLabelNode()
-    
+    var game_c = 0
     var moonwalk = UISwipeGestureRecognizer()
     var dragPress = UIPanGestureRecognizer()
     
@@ -81,7 +80,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
    
     
     func restartScene() {
-        
         self.removeAllChildren()
         self.removeAllActions()
         died = false
@@ -89,6 +87,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         score = 0
         isDeactivated = false
         isMagnetic = false
+        game_c += 1
+        let GameCountUser = UserDefaults.standard
+        GameCountUser.set(game_c, forKey: "GameCount")
+        GameCountUser.synchronize()
+        
+        if(game_c % 5 == 0) {
+            SKStoreReviewController.requestReview()
+        }
         
         let startScene = GameScene(fileNamed: "StartScene")
         self.scene?.view?.presentScene(startScene!, transition: .fade(withDuration: 0.8))
@@ -270,6 +276,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, SKViewDelegate, UIGestureRec
         let getCoinsCollected = UserDefaults.standard
         let magPowerUpsSaved = UserDefaults.standard
         let shieldPowerUpsSaved = UserDefaults.standard
+        
+        let gameCountUser = UserDefaults.standard
+        
+        if(gameCountUser.value(forKey: "GameCount") != nil) {
+            game_c = gameCountUser.value(forKey: "GameCount") as! Int
+        }
         
         if(highScoreDefult.value(forKey: "HighScore") != nil) {
             
