@@ -11,16 +11,21 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
+
+
 class TutorialsScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDelegate {
     
-    var timer = Timer()
     
+    let texture = [SKTexture(imageNamed: "Wall"), SKTexture(imageNamed: "backbtn"), SKTexture(imageNamed: "Ground"), SKTexture(imageNamed: "idle_1"), SKTexture(imageNamed: "idle_2"), SKTexture(imageNamed: "large_stack"), SKTexture(imageNamed: "Night_Sky"), SKTexture(imageNamed: "powerupYellow_bolt"), SKTexture(imageNamed: "powerupYellow_shield"), SKTexture(imageNamed: "powerupYellow_star"), SKTexture(imageNamed: "Restart_Btn"), SKTexture(imageNamed: "run_0"), SKTexture(imageNamed: "run_1"), SKTexture(imageNamed: "run_2"),
+                   SKTexture(imageNamed: "run_3"), SKTexture(imageNamed: "run_4"), SKTexture(imageNamed: "run_5"), SKTexture(imageNamed: "shareIcon"), SKTexture(imageNamed: "star_coin"), SKTexture(imageNamed: "swim_0"), SKTexture(imageNamed: "swim_1"), SKTexture(imageNamed: "swim_2"), SKTexture(imageNamed: "swim_3"), SKTexture(imageNamed: "swim_4"), SKTexture(imageNamed: "swim_5") ]
+    
+    var timer = Timer()
     var background = SKSpriteNode()
     var ground = SKSpriteNode()
     var welcomeNode = SKLabelNode()
     var cont = SKLabelNode()
     var ghost = SKSpriteNode()
-    
+    var doneIcon = SKSpriteNode()
     var moonwalk = UISwipeGestureRecognizer()
     var dragPress = UIPanGestureRecognizer()
     
@@ -31,13 +36,20 @@ class TutorialsScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDele
     
     let SWIPE_LEFT_THRESHOLD: CGFloat = -1000.0
     
+    var dragHandAnimation = SKAction()
+    var swipeLeftAnimation = SKAction()
+    var tutorialCount: Int = 0
+    let tutorialStatusCheck = UserDefaults.standard
+    
+    var sceneToLoad: StartScene!
+    
     override func didMove(to view: SKView) {
         
-        
+        SKTexture.preload(texture, withCompletionHandler: {})
+
         self.view?.isUserInteractionEnabled = true
         self.physicsWorld.contactDelegate = self 
         self.physicsBody = SKPhysicsBody.init(edgeLoopFrom: self.frame)
-        
         
         moonwalk = UISwipeGestureRecognizer()
         moonwalk.direction = .left
@@ -49,7 +61,6 @@ class TutorialsScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDele
         dragPress.maximumNumberOfTouches = 1
         self.view?.addGestureRecognizer(dragPress)
         
-        
         do {
             self.playJumpSound = try AVAudioPlayer(contentsOf: URL.init(string: Bundle.main.path(forResource: "jump", ofType: "wav")!)!)
             self.playJumpSound.prepareToPlay()
@@ -60,6 +71,9 @@ class TutorialsScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDele
         }
         
         playJumpSound.volume = 1.4
+        
+        //Load Start Scene
+        sceneToLoad = StartScene(fileNamed: "StartScene")
         
         createScene()
         
@@ -155,7 +169,7 @@ class TutorialsScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDele
     func createScene() {
         
         
-        welcomeNode.text = "WELCOME TO THE TUTORIAL"
+        welcomeNode.text = "CRUMPY JUMPS"
         welcomeNode.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 0.2998 * self.frame.height)
         welcomeNode.fontColor = .white
         welcomeNode.fontName = "Futura"
@@ -207,15 +221,8 @@ class TutorialsScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDele
     
     func createHandIcon() {
         
-        let smallHandIcon = SKSpriteNode(imageNamed: "Hand-small")
-        smallHandIcon.name = "smallHand"
-        smallHandIcon.position = CGPoint(x: self.frame.width/2 + 0.2 * self.frame.width, y: self.frame.height/2 - 0.112 * self.frame.height)
-        smallHandIcon.setScale(0.25)
-        smallHandIcon.zPosition = 2
-        self.addChild(smallHandIcon)
-        
         let label: SKLabelNode = SKLabelNode()
-        label.text = "Drag in accordance to the length of the arrow"
+        label.text = "Drag more to jump higher and less to jump lower"
         label.name = "Instructionlabelsmall"
         label.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 0.2998 * self.frame.height)
         label.fontName = "Futura"
@@ -223,12 +230,108 @@ class TutorialsScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDele
         label.zPosition = 2
         self.addChild(label)
         
+        let smallHandIcon = SKSpriteNode(imageNamed: "iPhone 8_00")
+        smallHandIcon.name = "dragAnimation"
+        smallHandIcon.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+        smallHandIcon.setScale(0.8)
+        smallHandIcon.zPosition = 2
+        
+        let handDrag_frame1 = SKTexture.init(imageNamed: "iPhone 8_00")
+        let handDrag_frame2 = SKTexture.init(imageNamed: "iPhone 8_01")
+        let handDrag_frame3 = SKTexture.init(imageNamed: "iPhone 8_02")
+        let handDrag_frame4 = SKTexture.init(imageNamed: "iPhone 8_03")
+        let handDrag_frame5 = SKTexture.init(imageNamed: "iPhone 8_04")
+        let handDrag_frame6 = SKTexture.init(imageNamed: "iPhone 8_05")
+        let handDrag_frame7 = SKTexture.init(imageNamed: "iPhone 8_06")
+        let handDrag_frame8 = SKTexture.init(imageNamed: "iPhone 8_07")
+
+        
+        let handDrags: [SKTexture] = [handDrag_frame1, handDrag_frame2, handDrag_frame3, handDrag_frame4, handDrag_frame5, handDrag_frame6, handDrag_frame7, handDrag_frame8]
+        
+        dragHandAnimation = SKAction.animate(with: handDrags, timePerFrame: 0.12, resize: false, restore: false)
+        smallHandIcon.run(SKAction.repeatForever(dragHandAnimation))
+        
+        
+        self.addChild(smallHandIcon)
+        
+
+        
         timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(createHandIconBig), userInfo: nil, repeats: false)
     }
     
     @objc func createHandIconBig() {
-      self.childNode(withName: "Instructionlabelsmall")?.removeFromParent()
-      self.childNode(withName: "smallHand")?.removeFromParent()
+       self.childNode(withName: "Instructionlabelsmall")?.removeFromParent()
+       self.childNode(withName: "dragAnimation")?.removeFromParent()
+        
+        //Create Swipe Left Animation
+        
+        let label: SKLabelNode = SKLabelNode()
+        label.text = "Swipe Left fast to perform a moonwalk"
+        label.name = "Instructionlabelsmall"
+        label.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 0.2998 * self.frame.height)
+        label.fontName = "Futura"
+        label.fontSize = 15
+        label.zPosition = 2
+        self.addChild(label)
+        
+        
+        let swipeLeftIcon = SKSpriteNode(imageNamed: "iPhone_00")
+        swipeLeftIcon.name = "swipeLeft"
+        swipeLeftIcon.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+        swipeLeftIcon.setScale(1.3)
+        swipeLeftIcon.zPosition = 2
+        self.addChild(swipeLeftIcon)
+        
+        let swipteLeft_frame1 = SKTexture.init(imageNamed: "iPhone_00")
+        let swipteLeft_frame2 = SKTexture.init(imageNamed: "iPhone_01")
+        let swipteLeft_frame3 = SKTexture.init(imageNamed: "iPhone_02")
+        let swipteLeft_frame4 = SKTexture.init(imageNamed: "iPhone_03")
+        let swipteLeft_frame5 = SKTexture.init(imageNamed: "iPhone_04")
+        
+        let swipeleftFrames: [SKTexture] = [swipteLeft_frame1, swipteLeft_frame2, swipteLeft_frame3, swipteLeft_frame4, swipteLeft_frame5]
+        
+        swipeLeftAnimation = SKAction.animate(with: swipeleftFrames, timePerFrame: 0.12, resize: false, restore: false)
+        swipeLeftIcon.run(SKAction.repeatForever(swipeLeftAnimation))
+        
+        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(createTouchIcon), userInfo: nil, repeats: false)
+    
+    }
+    
+    
+    @objc func createTouchIcon() {
+        
+        self.childNode(withName: "Instructionlabelsmall")?.removeFromParent()
+        self.childNode(withName: "swipeLeft")?.removeFromParent()
+        
+        let label: SKLabelNode = SKLabelNode()
+        label.text = "Tap the screen to decrease velocity in air."
+        label.name = "Instructionlabelsmall"
+        label.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 0.2998 * self.frame.height)
+        label.fontName = "Futura"
+        label.fontSize = 15
+        label.zPosition = 2
+        self.addChild(label)
+        
+        let touchIcon = SKSpriteNode(imageNamed: "Tap")
+        touchIcon.name = "touch"
+        touchIcon.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+        touchIcon.setScale(0.6)
+        touchIcon.zPosition = 2
+        self.addChild(touchIcon)
+        
+        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(tutorialDone), userInfo: nil, repeats: false)
+    }
+    
+    
+    
+    @objc func tutorialDone() {
+        
+        doneIcon = SKSpriteNode(imageNamed: "done")
+        doneIcon.position = CGPoint(x: self.frame.width/2 + 0.3733 * self.frame.width, y: self.frame.height / 2 + 0.4347 * self.frame.height)
+        doneIcon.zPosition = 2
+        doneIcon.setScale(0.7)
+        self.addChild(doneIcon)
+        
     }
     
     func addPlayer() {
@@ -281,7 +384,6 @@ class TutorialsScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDele
         
     }
     
-    
     override func update(_ currentTime: TimeInterval) {
         
         enumerateChildNodes(withName: "background", using: ({
@@ -310,16 +412,43 @@ class TutorialsScene: SKScene, UIGestureRecognizerDelegate, SKPhysicsContactDele
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if let _ = touches.first {
-                //destroy label
+            //destroy label
             if((self.childNode(withName: "contlabel")) != nil) {
                 self.childNode(withName: "wc")?.removeFromParent()
                 self.childNode(withName: "contlabel")?.removeFromParent()
+                if(tutorialStatusCheck.value(forKey: "donePressed") != nil) {
+                    tutorialCount = tutorialStatusCheck.value(forKey: "donePressed") as! Int
+                    if(tutorialCount > 0) {
+                        self.view?.presentScene(sceneToLoad)
+                    }
+                    
+                }
                 addPlayer()
                 createHandIcon()
             }
         }
-            
         
-    }
+        ghost.physicsBody?.velocity.dx *= 0.6
+        ghost.physicsBody?.velocity.dy *= 0.6
+        
+        for touch in touches  {
+            
+            let location = touch.location(in: self)
+            if(doneIcon.contains(location)) {
+                tutorialCount += 1
+                let tutorialStatusCheck = UserDefaults.standard
+                tutorialStatusCheck.set(tutorialCount, forKey: "donePressed")
+                tutorialStatusCheck.synchronize()
+                self.view?.presentScene(sceneToLoad)
+                
+            }
+            
+
+                    
+        }
+   }
     
+    
+
 }
+

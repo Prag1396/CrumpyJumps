@@ -14,10 +14,13 @@ import AVFoundation
 
 class GameViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
-    
     var backgroundMusic = AVAudioPlayer()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         if let view = self.view as! SKView? {
             // Load the SKScene from 'StartScene.sks'
             if let scene = SKScene(fileNamed: "TutorialsScene") as? TutorialsScene {
@@ -47,6 +50,8 @@ class GameViewController: UIViewController, MFMessageComposeViewControllerDelega
 
 
     }
+    
+
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         
