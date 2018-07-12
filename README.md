@@ -1,29 +1,6 @@
-# README #
+Crumpy Jumps on AppStore: https://apple.co/2MPlGwm
 
-This README would normally document whatever steps are necessary to get your application up and running.
+•	Fully crafted and built a fun and addictive game where players interact with environmental physics. You have to time your jump right, anticipating appropriate bounces to keep your score tight
+•	Incorporated precise physics (projectiles motion, gravity and external forces, plotted graphs for distance vs time etc.) which makes the game feel real.
+•	Added Social Sharing features - Challenge your friends to beat your super score by sharing your high scores
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
