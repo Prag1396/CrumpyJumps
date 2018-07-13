@@ -6,6 +6,6 @@
 
 •	Added Social Sharing features - Challenge your friends to beat your super score by sharing your high scores
 
-![img_5233](https://user-images.githubusercontent.com/16966560/42665653-75cdd298-85f5-11e8-8f08-fca0b101ea76.PNG)
-![img_5234](https://user-images.githubusercontent.com/16966560/42665654-75f56ccc-85f5-11e8-85db-98b20b7f5713.PNG)
+![img_5233](https://user-images.githubusercontent.com/16966560/42665707-c5029056-85f5-11e8-8f63-26b428b95222.PNG)
+![img_5234](https://user-images.githubusercontent.com/16966560/42665708-c51f5efc-85f5-11e8-8db2-9cf25661bac6.PNG)
 
